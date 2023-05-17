@@ -1,0 +1,13 @@
+- As a user, when I use the application for the first time, I want the application to make the map centered around my current location, so that I can know my location on the map.
+
+- As a user, I want when the center of the map moves to a location other than mine for whatever reason I want a button to make my current location the center of the map, so that I can see my location on the map.
+
+- As a user, I want when I open the application for the first time, I want the application to show me the hotels (as list and markers on the map) surrounding the center of the map (my location), so that I can choose the appropriate hotel for me.
+
+- As a user, I want when I specify a hotel as my destination, the application shows me some instructions to reach this hotel, so that I can reach the hotel easily
+
+- As a user, I want when I focus on the search input field, it shows me the cities near my location, so that if the city I am searching for appears, I choose it directly
+
+- As a user, I want whenever I type a letter in the search input field, auto-completion suggestions appear, so that if the city I am looking for appears among the suggestions, I choose it directly and do not continue writing.
+
+- As a user, I want when I search for a city and select it, I want the map to move to the center of the selected city, and it also shows me the hotels surrounding the center of the selected city, so that I can know the hotels in this city

@@ -1,0 +1,209 @@
+header{
+    width: 100%;
+    height: 65px;
+    background-color: #3f51b5;
+    font-size: 24px;
+    position: fixed;
+    z-index: 1001;
+}
+.container{
+    width: 95%;
+    margin: auto;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+.title{
+    display: none;
+    color: #fff;
+    font-weight: 700;
+    flex-grow: 1;
+}
+form{
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background-color: #febb02;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    border-radius: 2.5px;
+    -webkit-border-radius: 2.5px;
+    -moz-border-radius: 2.5px;
+    -ms-border-radius: 2.5px;
+    -o-border-radius: 2.5px;
+}
+form > *{
+    background-color: #fff;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    cursor: pointer;
+    padding: 0 5px;
+    border-radius: 2.5px;
+    -webkit-border-radius: 2.5px;
+    -moz-border-radius: 2.5px;
+    -ms-border-radius: 2.5px;
+    -o-border-radius: 2.5px;
+}
+form > * > :first-child{
+    font-size: 20px;
+}
+input{
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 6px 2.5px;
+    cursor: pointer;
+}
+form > button{
+    border: none;
+    background-color: #0071c2;
+    color: #fff;
+}
+.hide{
+    display: none;
+}
+.stretch{
+    flex-grow: 20;
+    padding: 0 7.5px;
+}
+.suggestions{
+    background-color: #fff;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    top: 110%;
+    box-shadow: 0 2px 16px -5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.suggestions > button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+    font-size: 23px;
+    color: #c13838;
+}
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.loader {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #0071c2;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+.suggestions > p{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 15px;
+}
+.suggestions > div{
+    border-bottom: 2px solid #777;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 22px;
+}
+.suggestions > div:last-child{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.suggestions > div:hover{
+    background-color: #eee;
+}
+.suggestions > div > div > p:first-child{
+    font-size: 16px;
+    font-weight: bold;
+}
+.suggestions > div > div > p:last-child{
+    font-size: 12px;
+}
+.menu{
+    font-size: 16px;
+    background-color: #fff;
+    width: min(100%, 300px);
+    position: absolute;
+    right: 0;
+    top: 110%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    box-shadow: 0 2px 16px -5px;
+}
+.menu > input{
+    border-bottom: 1px solid #0071c2;
+    caret-color: #0071c2;
+    padding: 15px;
+}
+.menu > div{
+    width: 100%;
+    max-height: 240px;
+    overflow: auto;
+}
+.menu > div > p{
+    padding: 10px 10px 10px 15px;
+    border-bottom: 1px solid #0071c277;
+}
+.menu > div > p:last-child{
+    border-bottom: none;
+}
+.menu > div > p:hover{
+    background-color: #0071c277;
+    color: #fff;
+}
+.menu > div > h4{
+    padding: 15px;
+    text-align: center;
+}
+@media (max-width: 337px){
+    form > * > input[type="date"]{
+        width: 60px;
+    }
+}
+@media (min-width: 450px){
+    form > div{
+        position: relative;
+    }
+}
+@media (min-width: 767px){
+    .title{
+        display: block;
+    }
+    form{
+        width: min(100%, 462px);
+        flex-grow: 1;
+    }
+}

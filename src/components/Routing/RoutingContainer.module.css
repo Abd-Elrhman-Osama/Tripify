@@ -1,0 +1,223 @@
+/* start utils */
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+/* end utils */
+
+/* start routing container */
+.routing{
+    position: absolute;
+    z-index: 1000;
+    top: 10px;
+    transition-duration: 1s;
+    width: min(350px, 95%);
+    height: 350px;
+    overflow-y: auto;
+    cursor: initial;
+    margin: auto;
+    padding: 20px min(20px, 3vw);
+    padding-top: 40px;
+    background-color: #fff;
+    box-shadow: 0px 0px 60px 1px #00000077;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+@media (max-width: 600px){
+    .routing{
+        height: 300px;
+    }
+}
+/* end routing container */
+
+/* start remove routing btn */
+.routing > button{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+    font-size: 23px;
+    color: #c13838;
+}
+/* end remove routing btn */
+
+/* start travel mode container */
+.travel-mode{
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 25px;
+}
+.travel-mode > button{
+    position: relative;
+    padding: 8px 0;
+    width: min(50px, 16vw);
+    font-size: min(25px, 10vw);
+    border: 1px solid #777;
+    border-right: none;
+}
+.travel-mode > button:first-of-type{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.travel-mode > button:last-of-type{
+    border-right: 1px solid #777;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.travel-mode > button:hover{
+    background-color: #777;
+}
+/* end travel mode container */
+
+/* start waypoints container */
+.waypoints-container > div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.waypoint-icon{
+    border: 7.5px solid #777;
+    border-radius: 50%;
+    position: relative;
+}
+.waypoints-container > div:not(:last-child) > .waypoint-icon::after{
+    content: "";
+    position: absolute;
+    width: 2.5px;
+    height: 35px;
+    background-color: #777;
+    left: -1px;
+    top: 7px;
+}
+.waypoints-container > div:nth-last-child(2) > .waypoint-icon::after{
+    height: 27px;
+}
+.waypoint-field{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    border-bottom: 1px solid;
+}
+.waypoint-field > input{
+    background-color: transparent;
+}
+.waypoint-field > button,
+.waypoints-container > div > button{
+    font-size: 20px;
+    position: relative;
+    color: #777;
+}
+.waypoint-field > button{
+    font-size: 14px;
+    color: #777;
+}
+.loader {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #0071c2;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+.suggestions{
+    width: 100%;
+    max-height: 170px;
+    overflow-x: auto;
+    cursor: pointer;
+    background-color: #ccc;
+    position: absolute;
+    left: 0;
+    top: 107%;
+    z-index: 2;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.suggestions > div{
+    width: 100%;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border-bottom: 1px solid #eee;
+}
+.suggestions > div:last-child{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.suggestions > div:hover{
+    background-color: #777;
+}
+.waypoint-op{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.waypoint-op > button{
+    color: #444;
+    position: relative;
+    font-size: 25px;
+}
+.waypoint-op > button:hover{
+    color: #777;
+} 
+/* end waypoints container */
+
+/* start route details */
+.route-details{
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    gap: min(25px, 5vw);
+}
+.route-details > *:first-child{
+    font-size: 20px;
+}
+.route-details > div{
+    width: 100%;
+    font-weight: bold;
+    font-size: min(16px, 5vw);
+}
+.route-details > div > div > span:first-child{
+    color: #777;
+}
+.route-details > div > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* end route details */
+
+/* start route direction */
+.route-direction{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+/* end route direction */
+

@@ -1,0 +1,72 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+
+      - name: Build project
+        run: npm run build
+        env:
+          VITE_REACT_RAPID_API_KEY_0: '10139c2b5dmshdcb9751572aa6d0p1677afjsn5c7930157ac5'
+          VITE_REACT_RAPID_API_KEY_1: 'f4fcba40b3mshd8ade2289a4101ep111933jsn72db087f427b'
+          VITE_REACT_RAPID_API_KEY_2: 'cd347b5717msh9fc679b8619e2b0p127322jsn14e4c51a58d4'
+          VITE_REACT_RAPID_API_KEY_3: '6af4779cb5mshab0ba6cd7e01b80p1ac871jsnaf557f6ec66b'
+          VITE_REACT_RAPID_API_KEY_4: '431c23a81dmsh3b6edde63775dcep183c96jsnd5d6e474ca2e'
+          VITE_REACT_GEOAPIFY_PLATFORM_API_KEY_0: '12e4b384a8154666af3d662ef00546e7'
+          VITE_REACT_GEOAPIFY_PLATFORM_API_KEY_1: '9bd87c566e214672bce314b637ae27bb'
+          VITE_REACT_GEOAPIFY_PLATFORM_API_KEY_2: '550ab1e05e4e4f87b53e63bc8aba5bcf'
+          VITE_REACT_GEOAPIFY_PLATFORM_API_KEY_3: 'cc30bb9d30f8459ab8370623fbad6844'
+          VITE_REACT_GEOAPIFY_PLATFORM_API_KEY_4: 'cc310d352af54a7a80ab8d39e00d0ca9'
+          VITE_REACT_GEOKEO_GEOCODING_HEADER_API_KEY_0: '9721b5bb0a2fc828d9d2eaccdb8f0ec0'
+          VITE_REACT_GEOKEO_GEOCODING_HEADER_API_KEY_1: '56888f9f73ab74dd1fd4b55ba0aa7f22'
+          VITE_REACT_GEOKEO_GEOCODING_HEADER_API_KEY_2: '0ca17c3dd8a5c8cb36161cdc5a929428'
+          VITE_REACT_GEOKEO_GEOCODING_HEADER_API_KEY_3: '76f94716436d232a2b8b415f797d0c02'
+          VITE_REACT_GEOKEO_GEOCODING_HEADER_API_KEY_4: 'a040b0546604824f5c26c83ec488d100'
+          VITE_REACT_GEOKEO_GEOCODING_ROUTING_API_KEY_0: '4c3b321035ebb59129491cf0ff4f8914'
+          VITE_REACT_GEOKEO_GEOCODING_ROUTING_API_KEY_1: 'd227867d19cf92f4650b962449f2b79e'
+          VITE_REACT_GEOKEO_GEOCODING_ROUTING_API_KEY_2: '0f409b6d54ca74906bb2b68ded88862d'
+          VITE_REACT_GEOKEO_GEOCODING_ROUTING_API_KEY_3: '6d02400d3fd1b1ea2ce67b759d3e4f57'
+          VITE_REACT_GEOKEO_GEOCODING_ROUTING_API_KEY_4: 'ccb39eec45ebd5c4c874a220827e9083'
+
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v2
+        with:
+          name: production-files
+          path: ./dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: production-files
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

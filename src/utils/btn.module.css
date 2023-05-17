@@ -1,0 +1,80 @@
+.btn{
+    font-size: 22px;
+    display: block;
+    padding: 10px;
+    background-color: #FFF;
+    box-shadow: 0px 0px 60px 1px #000;
+    cursor: pointer;
+    z-index: 1000;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.btn-animation{
+    animation: scroll 2s infinite;
+    -webkit-animation: scroll 2s infinite;
+}
+
+@keyframes scroll{
+    20%{
+        transform: translateY(-20px);
+        -webkit-transform: translateY(-20px);
+        -moz-transform: translateY(-20px);
+        -ms-transform: translateY(-20px);
+        -o-transform: translateY(-20px);
+}
+    30%{
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+    45%{
+        transform: translateY(-20px);
+        -webkit-transform: translateY(-20px);
+        -moz-transform: translateY(-20px);
+        -ms-transform: translateY(-20px);
+        -o-transform: translateY(-20px);
+    }
+    60%{
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+    100%{
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+}
+
+.btn-toggleShow{
+    animation: toggleShow 1s linear forwards;
+    -webkit-animation: toggleShow 1s linear forwards;
+}
+
+@keyframes toggleShow{
+    0%{
+        right: 10px;
+        display: block;
+    }
+    50%{
+        right: -100%;
+        display: none;
+    }
+    100%{
+        right: -100%;
+        display: none;
+    }
+}
