@@ -30,7 +30,7 @@ export default function UserLocate(){
     }, [])
     
     return <>
-        <FontAwesomeIcon icon={faLocationCrosshairs} className={style.btn} onClick={() => map.locate()} style={{left: "10px", cursor: isUserLocAllowed ? "pointer" : "not-allowed", bottom: "20px"}} title={isUserLocAllowed ? "Your current location" : "User location access is denied"}/>
+        <FontAwesomeIcon icon={faLocationCrosshairs} className={style.btn} onClick={() => map.locate()} style={{left: "10px", cursor: isUserLocAllowed ? "pointer" : "not-allowed", bottom: window.innerWidth < 700 ? "20px" : "10px"}} title={isUserLocAllowed ? "Your current location" : "User location access is denied"}/>
         {
             userLocation.lat &&
             <Marker position={[userLocation.lat, userLocation.lng]} riseOnHover={true}>

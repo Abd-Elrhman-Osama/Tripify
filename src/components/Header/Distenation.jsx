@@ -144,7 +144,7 @@ export default function Distenation(props){
                         e.target.style.border="initial";
                         !e.target.value && userLocation.lat ? nearbyRefetch() : null;
                         props.setSearch(prevState => {
-                            return {...prevState, dist: {...prevState.dist, data: e.target.value, nearby: {...prevState.dist.nearby, show: userLocation && Boolean(!e.target.value)}, geocode: Boolean(e.target.value), coordsFromNearby: false}}
+                            return {...prevState, dist: {...prevState.dist, data: e.target.value, nearby: {...prevState.dist.nearby, show: userLocation.lat && Boolean(!e.target.value)}, geocode: Boolean(e.target.value), coordsFromNearby: false}}
                         })
                     }}
                     onFocus={e => !e.target.value && userLocation.lat ? nearbyRefetch() : 
