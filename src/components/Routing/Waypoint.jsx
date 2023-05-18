@@ -46,10 +46,13 @@ export default React.memo(
                         placeholder="Enter address here, or click on the map"
                         onChange={fillWaypointHandler}
                     />
-                    <button id="clear" onClick={() => dispatch(clearWaypoint({index: props.index}))}>
-                        <FontAwesomeIcon icon={faX} />
-                        <span className={style.overlay}></span>
-                    </button>
+                    {
+                        waypoint.initialAddress && 
+                        <button id="clear" onClick={() => dispatch(clearWaypoint({index: props.index}))}>
+                            <FontAwesomeIcon icon={faX} />
+                            <span className={style.overlay}></span>
+                        </button>
+                    }
     
                     <GeoCoder index={props.index}/>
                     <RevGeoCoder index={props.index} />
