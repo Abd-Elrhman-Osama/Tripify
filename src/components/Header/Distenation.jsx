@@ -11,9 +11,11 @@ import geocoding from "../../api/routing/geocoding";
 export default function Distenation(props){
     const dispatch = useDispatch();
     const userLocation = useSelector(state => state.mapInfo.user);
+    const filter = useSelector(state => state.places.filter.vis);
     const [content, setContent] = useState()
     const [nearbyApiKeyIndex, setNearbyKeyIndex] = useState(0)
     const [geoApiKeyIndex, setGeoKeyIndex] = useState(0)
+    let icon = {"Hotels": faHotel, "Resorts": faHotel, "Banks": faBuildingColumns, "ATM": faDollarSign, "Restaurants": faUtensils, "Cafes": faMugSaucer, "Malls": faShop, "Fuel": faGasPump};
 
     const {isFetching: isNearbyFetching, data: nearbyCities, refetch: nearbyRefetch } = useQuery({
         queryKey: ["Nearby Cities", userLocation.lat, userLocation.lng, nearbyApiKeyIndex],
@@ -133,7 +135,7 @@ export default function Distenation(props){
                 onClick={props.search.dist.show? null : props.iconHandler}
             >
 
-                <FontAwesomeIcon icon={faHouse}/>
+                <FontAwesomeIcon icon={icon[filter]}/>
                 <input 
                     type="search"
                     placeholder="Where are you going?"
