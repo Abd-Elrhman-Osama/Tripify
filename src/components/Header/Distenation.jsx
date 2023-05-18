@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faHouse, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faBuildingColumns, faDollarSign, faGasPump, faHotel, faUtensils, faMugSaucer, faShop, faRoute, faCircleXmark, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { useQuery } from "@tanstack/react-query";
 import citiesNearLocation from '../../api/search/citiesNearLocation';
 import { useDispatch, useSelector } from 'react-redux';
