@@ -11,6 +11,10 @@ const places = createSlice({
     initialState,
     reducers: {
         getDist: (state, action) => {
+            for(let prop in action.payload){
+                if(+action.payload[prop] >= 90 || +action.payload[prop] <= -90)
+                    return;
+            }
             state.dist = action.payload;
         },
         getFilter: (state, action) => {
