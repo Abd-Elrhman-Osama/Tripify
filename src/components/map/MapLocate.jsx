@@ -8,7 +8,7 @@ export default function MapLocate(){
     const map = useMap();
     useEffect(() => {
         map.flyTo(mapCenter);
-        dispatch(getDist({lat_min: map.getBounds().getSouthWest().lat, lon_min: map.getBounds().getSouthWest().lng, lat_max: map.getBounds().getNorthEast().lat, lon_max: map.getBounds().getNorthEast().lng}));
+        (map.getBounds().getSouthWest().lng >= -90 && map.getBounds().getSouthWest().lng <= 90) && dispatch(getDist({lat_min: map.getBounds().getSouthWest().lat, lon_min: map.getBounds().getSouthWest().lng, lat_max: map.getBounds().getNorthEast().lat, lon_max: map.getBounds().getNorthEast().lng}));
     }, [mapCenter.lat, mapCenter.lng])
     return null;
 };
