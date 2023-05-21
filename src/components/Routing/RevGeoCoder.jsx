@@ -25,9 +25,9 @@ export default React.memo(
                     key: props.index,
                     id: routing.id.startsWith("place") || routing.id.startsWith("userLocation") ? routing.id : "point", 
                     status: "ok",
-                    address: data.Result.Address, 
-                    coords: {lat: +data.Query.lat, lng: +data.Query.lon}, 
-                    country: data.AdminAreas[0]
+                    address: data.display_name, 
+                    coords: {lat: +data.lat, lng: +data.lon},
+                    country: data.address.country
                 }
             }
         })
